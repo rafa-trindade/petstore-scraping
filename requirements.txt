@@ -1,0 +1,19 @@
+df_petlove = pd.read_csv('../data/petlove_lojas.csv', sep=',')
+df_petlove["endereco"] = df_petlove["endereco"].str.replace("\n", " ", regex=False).str.replace(r"\s+", " ", regex=True).str.strip()
+df_petlove["telefone"] = df_petlove["telefone"].str.replace("\n", " ", regex=False).str.replace(r"\s+", " ", regex=True).str.strip()
+df_petlove[["endereco_desmembrado", "bairro", "cidade", "estado", "cep"]] = df_petlove["endereco"].apply(desmembrar_endereco)
+df_petlove = df_petlove.drop(columns=["endereco"])
+df_petlove = df_petlove.rename(columns={"endereco_desmembrado": "endereco"})
+saida_csv = os.path.join(output_dir, "petlove_tradato.csv")
+df_petlove.to_csv(saida_csv, index=False, encoding="utf-8-sig")
+
+
+
+df_petz = pd.read_csv('../data/petz_lojas.csv', sep=',')
+df_petz["endereco"] = df_petz["endereco"].str.replace("\n", " ", regex=False).str.replace(r"\s+", " ", regex=True).str.strip()
+df_petz["telefone"] = df_petz["telefone"].str.replace("\n", " ", regex=False).str.replace(r"\s+", " ", regex=True).str.strip()
+df_petz[["endereco_desmembrado", "bairro", "cidade", "estado", "cep"]] = df_petz["endereco"].apply(desmembrar_endereco)
+df_petz = df_petz.drop(columns=["endereco"])
+df_petz = df_petz.rename(columns={"endereco_desmembrado": "endereco"})
+saida_csv = os.path.join(output_dir, "petz_tradato.csv")
+df_petz.to_csv(saida_csv, index=False, encoding="utf-8-sig")
