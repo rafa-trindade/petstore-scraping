@@ -66,6 +66,6 @@ Atualmente, o projeto coleta dados das seguintes redes:
 Os arquivos gerados na pasta `data/silver_raw/` são consumidos diretamente pelo repositório [**`petstore-bi`**](https://github.com/rafa-trindade/petstore-bi) através do link “raw” do GitHub:
 
 ```python
-url = "https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/main/data/silver_raw/petland.csv"
+url = "https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/main/data/silver_raw/lojas_silver_raw.csv"
 df = pd.read_csv(url)
 ```
