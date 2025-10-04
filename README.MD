@@ -21,7 +21,8 @@ O projeto é dividido em duas camadas principais:
 ## 📊 Estrutura dos dados
 Os dados padronizados (silver_raw) são salvos com o seguinte formato de colunas:
 
-| empresa | nome | endereco | bairro | cidade | estado | cep | |----------|------|-----------|--------|--------|--------|-----|
+| empresa | nome | endereco | bairro | cidade | estado | cep |
+|---------|------|---------|-------|--------|--------|-----|
 
 ---
 
