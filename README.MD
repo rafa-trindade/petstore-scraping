@@ -1,4 +1,4 @@
-# 🐾 petstore-scraping | Extract → Transform
+# 🐾 petstore-scraping
 
 Projeto de **scraping** para coletar informações de lojas do setor pet, estruturando os dados em formato padronizado para análise, consulta e integração.  
 
