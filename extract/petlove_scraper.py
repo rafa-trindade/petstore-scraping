@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
 from bs4 import BeautifulSoup
 import pandas as pd
+import re
 import time
 
 
@@ -14,7 +15,6 @@ def scrape_petlove(url):
     gecko_path = r"C:\WebDriver\geckodriver.exe"
 
     options = webdriver.FirefoxOptions()
-
     driver = webdriver.Firefox(service=Service(gecko_path), options=options)
     wait = WebDriverWait(driver, 15)
 
@@ -35,50 +35,53 @@ def scrape_petlove(url):
         outer = card.get_attribute("outerHTML")
         soup = BeautifulSoup(outer, "html.parser")
 
+        # Captura nome
         nome_tag = soup.select_one("h3.shop__title")
         nome = nome_tag.get_text(strip=True) if nome_tag else ""
 
-        endereco = ""
-        endereco_tag = soup.find("p", string=lambda t: t and "Endereço" in t)
-        if endereco_tag:
-            endereco_info = endereco_tag.find_next_sibling("p")
-            endereco = endereco_info.get_text(strip=True) if endereco_info else ""
+        # Captura endereço completo
+        endereco_tag = soup.select_one("p.shop__info__text")
+        endereco_full = endereco_tag.get_text(strip=True) if endereco_tag else ""
 
-        telefone = ""
-        tel_tag = soup.find("p", string=lambda t: t and "Telefone" in t)
-        if tel_tag:
-            tel_info = tel_tag.find_next_sibling("p")
-            telefone = tel_info.get_text(strip=True) if tel_info else ""
+        # Inicializa variáveis
+        endereco, bairro, cidade, estado, cep = "", "", "", "", ""
 
-        horarios = []
-        horarios_block = soup.find("p", string=lambda t: t and "Horário" in t)
-        if horarios_block:
-            horarios_div = horarios_block.find_parent("div", class_="shop__info")
-            if horarios_div:
-                horarios_tags = horarios_div.find_all("p", class_="shop__info__text")
-                horarios = [h.get_text(strip=True) for h in horarios_tags]
-        horario_funcionamento = " | ".join(horarios)
+        if endereco_full:
+            parts = [p.strip() for p in endereco_full.split(",")]
+            if len(parts) >= 1:
+                endereco = parts[0]
+            if len(parts) >= 2:
+                bairro = parts[1]
+            if len(parts) >= 3:
+                cidade_estado = parts[2]
+                if "-" in cidade_estado:
+                    cidade, estado = [x.strip() for x in cidade_estado.split("-", 1)]
+                else:
+                    cidade = cidade_estado
+                    estado = ""
+            cep_match = re.search(r"\d{5}-\d{3}", endereco_full)
+            if cep_match:
+                cep = cep_match.group()
 
-        servicos_li = soup.select("ul.shop__services li span")
-        servicos_disponiveis = ", ".join([s.get_text(strip=True) for s in servicos_li]) if servicos_li else ""
-
+        # Mantém verificação de duplicados
         key = (nome.strip(), endereco.strip())
         if key in processed_keys:
             return None
         processed_keys.add(key)
 
-        print(f"  + [{idx}] {nome}")
+        print(f"  + [{idx}] {nome} — {endereco}, {bairro}, {cidade}, {estado}, {cep}")
 
         return {
             "empresa": "petlove",
-            "franquia": 1,
             "nome": nome,
             "endereco": endereco,
-            "telefone": telefone,
-            "horario_funcionamento": horario_funcionamento,
-            "servicos_disponiveis": servicos_disponiveis
+            "bairro": bairro,
+            "cidade": cidade,
+            "estado": estado,
+            "cep": cep
         }
 
+    # Processa cards iniciais
     cards_inicial = driver.find_elements(By.CSS_SELECTOR, "div.shop__card")
     print(f"Coletando lojas do grupo inicial já expandido ({len(cards_inicial)} cards encontrados).")
 
@@ -92,11 +95,12 @@ def scrape_petlove(url):
         except StaleElementReferenceException:
             continue
 
+    # Processa accordions restantes
     accordions = driver.find_elements(By.CSS_SELECTOR, "div.shops__accordion")
     n_groups = len(accordions)
     print(f"Encontrados {n_groups} grupos (accordions) na página.")
 
-    for idx in range(1, n_groups):  # começa em 1 porque já processamos o primeiro
+    for idx in range(1, n_groups):
         try:
             accordions = driver.find_elements(By.CSS_SELECTOR, "div.shops__accordion")
             if idx >= len(accordions):
@@ -135,22 +139,23 @@ def scrape_petlove(url):
     if df.empty:
         print("⚠️ Nenhuma loja foi coletada.")
     else:
+        # Mantém agrupamento igual ao original, mas adaptando colunas
         df_final = df.groupby(["nome", "endereco"], as_index=False).agg({
             "empresa": "first",
-            "franquia": "first",
-            "telefone": "first",
-            "horario_funcionamento": lambda x: " | ".join([v for v in x if v]),
-            "servicos_disponiveis": lambda x: ", ".join(sorted(set(", ".join([v for v in x if v]).split(", "))))
+            "bairro": "first",
+            "cidade": "first",
+            "estado": "first",
+            "cep": "first"
         })
 
         colunas_ordenadas = [
             "empresa",
-            "franquia",
             "nome",
             "endereco",
-            "telefone",
-            "horario_funcionamento",
-            "servicos_disponiveis"
+            "bairro",
+            "cidade",
+            "estado",
+            "cep"
         ]
         df = df_final[colunas_ordenadas]
 

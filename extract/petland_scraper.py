@@ -47,10 +47,8 @@ def scrape_petland(url):
 
         lista_lojas.append({
             "empresa": "petland",
-            "franquia": 1,
             "nome": nome,
             "endereco": endereco,
-            "telefone": telefone
         })
 
     df = pd.DataFrame(lista_lojas)

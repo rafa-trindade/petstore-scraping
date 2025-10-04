@@ -2,10 +2,12 @@ import os
 import pandas as pd
 
 from extract.petz_scraper import scrape_petz
+from extract.cobasi_scraper import scrape_cobasi
 from extract.petlove_scraper import scrape_petlove
 from extract.petland_scraper import scrape_petland
 
 from transform.data_processing import tratarmento_petz
+from transform.data_processing import tratarmento_cobasi
 from transform.data_processing import tratarmento_petlove
 from transform.data_processing import tratarmento_petland
 
@@ -21,6 +23,12 @@ def main():
     df_petz.to_csv(os.path.join(BRONZE_DIR, "petz_bronze.csv"), index=False, encoding="utf-8-sig", sep=";")
     print(f"{len(df_petz)} lojas salvas em data/bronze/petz_bronze.csv")
 
+    url = "https://www.cobasi.com.br/lojas"
+    print("Coletando dados da Cobasi...")
+    df_cobasi = scrape_cobasi(url)
+    df_cobasi.to_csv(os.path.join(BRONZE_DIR, "cobasi_bronze.csv"), index=False, encoding="utf-8-sig", sep=";")
+    print(f"{len(df_cobasi)} lojas salvas em data/bronze/cobasi_bronze.csv")
+    
     url = "https://www.petlove.com.br/lojas-fisicas"
     print("Coletando dados da Petlove...")
     df_petlove = scrape_petlove(url)
@@ -42,6 +50,13 @@ def main():
                             index=False, encoding="utf-8-sig", sep=";")
     print(f"{len(df_petz_silver)} lojas salvas em data/silver/petz_silver.csv")
 
+    # Cobasi
+    print("Transformando dados da Cobasi...")
+    df_cobasi_silver = tratarmento_cobasi(os.path.join(BRONZE_DIR, "cobasi_bronze.csv"))
+    df_cobasi_silver.to_csv(os.path.join(SILVER_DIR, "cobasi_silver.csv"),
+                            index=False, encoding="utf-8-sig", sep=";")
+    print(f"{len(df_cobasi_silver)} lojas salvas em data/silver/cobasi_silver.csv")
+
     # Petlove
     print("Transformando dados da Petlove...")
     df_petlove_silver = tratarmento_petlove(os.path.join(BRONZE_DIR, "petlove_bronze.csv"))
@@ -55,6 +70,10 @@ def main():
     df_petland_silver.to_csv(os.path.join(SILVER_DIR, "petland_silver.csv"),
                                 index=False, encoding="utf-8-sig", sep=";")
     print(f"{len(df_petland_silver)} lojas salvas em data/silver/petland_silver.csv")
+
+    df_final = pd.concat([df_petz_silver, df_cobasi_silver, df_petlove_silver, df_petland_silver], ignore_index=True)
+    df_final.to_csv("data/silver/lojas_silver.csv", index=False, sep=";", encoding="utf-8-sig")
+    print(f"{len(df_final)} lojas salvas em data/silver/lojas_silver.csv")
 
 
 

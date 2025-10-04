@@ -58,17 +58,12 @@ def scrape_petz(url):
 
         lista_lojas.append({
             "empresa": "petz",
-            "franquia": 1,
             "nome": nome,
             "endereco": endereco,
             "bairro": bairro,
             "cidade": cidade,
             "estado": estado,
             "cep": cep,
-            "telefone": telefone,
-            "horario_funcionamento": horario_funcionamento,
-            "produtos_para": produtos_para,
-            "servicos_disponiveis": servicos_disponiveis
         })
 
     df = pd.DataFrame(lista_lojas)

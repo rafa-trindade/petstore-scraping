@@ -40,6 +40,7 @@ Os dados extraídos são estruturados no seguinte formato:
 ## 📊 Redes suportadas
 Atualmente, o projeto coleta dados das seguintes redes:
 
-- **Petz** 🐶🐱  
-- **Petlove** 💙  
-- **Petland** 🌎  
+- **Petz** 
+- **Cobasi**
+- **Petlove**   
+- **Petland**   
