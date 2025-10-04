@@ -12,8 +12,8 @@ Ele permite extrair informações como **endereço, telefone, horários de funci
 
 O projeto segue a arquitetura **Extract → Transform**:  
 
-- **Extract:** cada scraper coleta dados brutos das páginas das redes Petz, Petlove e Petland e salva em CSVs na pasta `data/raw/`.  
-- **Transform:** os arquivos brutos são processados e padronizados em CSVs limpos na pasta `data/processed/`, prontos para análise e integração.
+- **Extract:** cada scraper coleta dados brutos das páginas das redes Petz, Petlove e Petland e salva em CSVs na pasta `data/bronze/`.  
+- **Transform:** os arquivos brutos são processados e padronizados em CSVs limpos na pasta `data/silver/`, prontos para análise e integração.
 
 ## 📊 Dados coletados
 Os dados extraídos são estruturados no seguinte formato:
@@ -34,8 +34,8 @@ Os dados extraídos são estruturados no seguinte formato:
 - [pandas](https://pypi.org/project/pandas/) → manipulação e estruturação de dados  
 
 ## 📂 Saída
-- **Raw:** CSVs brutos na pasta `data/raw/` (ex.: `petz_raw.csv`).  
-- **Processed:** CSVs tratados e padronizados na pasta `data/processed/` (ex.: `petz_processed.csv`).  
+- **Bronze:** CSVs brutos na pasta `data/bronze/` (ex.: `petz_bronze.csv`).  
+- **Silver:** CSVs tratados e padronizados na pasta `data/silver/` (ex.: `petz_silver.csv`).  
 
 ## 📊 Redes suportadas
 Atualmente, o projeto coleta dados das seguintes redes:
