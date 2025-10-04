@@ -21,8 +21,20 @@ O projeto é dividido em duas camadas principais:
 ## 📊 Estrutura dos dados
 Os dados padronizados (silver_raw) são salvos com o seguinte formato de colunas:
 
-| empresa | nome | endereco | bairro | cidade | estado | cep | <span style="color:blue">longitude</span> | <span style="color:red">latitude</span> |
-|---------|------|---------|-------|--------|--------|-----|---------------------------------|----------------|
+<table>
+  <tr>
+    <th>empresa</th>
+    <th>nome</th>
+    <th>endereco</th>
+    <th>bairro</th>
+    <th>cidade</th>
+    <th>estado</th>
+    <th>cep</th>
+    <th style="color:blue;">longitude</th>
+    <th style="color:red;">latitude</th>
+  </tr>
+</table>
+
 
 ---
 
