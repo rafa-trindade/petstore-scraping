@@ -31,7 +31,7 @@ Os dados padronizados (silver_raw) são salvos com o seguinte formato de colunas
       <th>cidade</th>
       <th>estado</th>
       <th>cep</th>
-      <th style="color:blue;">longitude</th>
+      <th style="background-color:blue;">longitude</th>
       <th style="color:red;">latitude</th>
     </tr>
   </thead>
