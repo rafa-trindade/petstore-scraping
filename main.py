@@ -12,7 +12,7 @@ from transform.data_processing import tratarmento_petlove
 from transform.data_processing import tratarmento_petland
 
 BRONZE_DIR = os.path.join("data", "bronze")
-SILVER_DIR = os.path.join("data", "silver")
+SILVER_DIR = os.path.join("data", "silver_raw")
 os.makedirs(BRONZE_DIR, exist_ok=True)
 os.makedirs(SILVER_DIR, exist_ok=True)
 
@@ -46,35 +46,26 @@ def main():
     # Petz
     print("Transformando dados da Petz...")
     df_petz_silver = tratarmento_petz(os.path.join(BRONZE_DIR, "petz_bronze.csv"))
-    df_petz_silver.to_csv(os.path.join(SILVER_DIR, "petz_silver.csv"),
-                            index=False, encoding="utf-8-sig", sep=";")
-    print(f"{len(df_petz_silver)} lojas salvas em data/silver/petz_silver.csv")
+    print(f"{len(df_petz_silver)} lojas salvas.")
 
     # Cobasi
     print("Transformando dados da Cobasi...")
     df_cobasi_silver = tratarmento_cobasi(os.path.join(BRONZE_DIR, "cobasi_bronze.csv"))
-    df_cobasi_silver.to_csv(os.path.join(SILVER_DIR, "cobasi_silver.csv"),
-                            index=False, encoding="utf-8-sig", sep=";")
-    print(f"{len(df_cobasi_silver)} lojas salvas em data/silver/cobasi_silver.csv")
+    print(f"{len(df_cobasi_silver)} lojas salvas.")
 
     # Petlove
     print("Transformando dados da Petlove...")
     df_petlove_silver = tratarmento_petlove(os.path.join(BRONZE_DIR, "petlove_bronze.csv"))
-    df_petlove_silver.to_csv(os.path.join(SILVER_DIR, "petlove_silver.csv"),
-                                index=False, encoding="utf-8-sig", sep=";")
-    print(f"{len(df_petlove_silver)} lojas salvas em data/silver/petlove_silver.csv")
+    print(f"{len(df_petlove_silver)} lojas salvas.")
 
     # Petland
     print("Transformando dados da Petland...")
     df_petland_silver = tratarmento_petland(os.path.join(BRONZE_DIR, "petland_bronze.csv"))
-    df_petland_silver.to_csv(os.path.join(SILVER_DIR, "petland_silver.csv"),
-                                index=False, encoding="utf-8-sig", sep=";")
-    print(f"{len(df_petland_silver)} lojas salvas em data/silver/petland_silver.csv")
+    print(f"{len(df_petland_silver)} lojas salvas.")
 
     df_final = pd.concat([df_petz_silver, df_cobasi_silver, df_petlove_silver, df_petland_silver], ignore_index=True)
-    df_final.to_csv("data/silver/lojas_silver.csv", index=False, sep=";", encoding="utf-8-sig")
-    print(f"{len(df_final)} lojas salvas em data/silver/lojas_silver.csv")
-
+    df_final.to_csv("data/silver_raw/lojas_silver_raw.csv", index=False, sep=";", encoding="utf-8-sig")
+    print(f"{len(df_final)} lojas salvas em data/silver_raw/lojas_silver_raw.csv")
 
 
 if __name__ == "__main__":

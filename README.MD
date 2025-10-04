@@ -1,46 +1,71 @@
 # 🐾 petstore-scraping | Extract → Transform
 
-Projeto de **scraping** para coletar informações de lojas (franquias) do setor pet, estruturando os dados em formato padronizado para análise, consulta e integração.  
+Projeto de **scraping** para coletar informações de lojas do setor pet, estruturando os dados em formato padronizado para análise, consulta e integração.  
 
-O projeto segue a arquitetura **Extract → Transform**, onde os dados brutos coletados (extract) são tratados e padronizados (transform) antes de serem salvos.  
+O projeto segue a arquitetura de dados **bronze → silver_raw**, onde os dados brutos coletados (bronze) são tratados e padronizados (silver_raw) antes de serem disponibilizados para consumo externo.  
 
-Os dados coletados por este scraper são preparados para uso no projeto [**`petstore-bi`**](https://github.com/rafa-trindade/petstore-bi), servindo como fonte de carga (load) para dashboards e análises.
+Os dados processados por este scraper são consumidos pelo projeto [**`petstore-bi`**](https://github.com/rafa-trindade/petstore-bi), que realiza o enriquecimento, tratamento final e carga no banco de dados.
+
+---
 
 ## 📌 Descrição
-O `petstore-scraper` automatiza a coleta de dados de pet shops e franquias do segmento pet.  
-Ele permite extrair informações como **endereço, telefone, horários de funcionamento, serviços e produtos oferecidos**, facilitando análises regionais e integração com sistemas externos.
+O `petstore-scraping` automatiza a coleta de dados de **franquias do segmento pet**, padronizando as informações para integração e análise posterior.  
 
-O projeto segue a arquitetura **Extract → Transform**:  
+O projeto é dividido em duas camadas principais:  
 
-- **Extract:** cada scraper coleta dados brutos das páginas das redes Petz, Petlove e Petland e salva em CSVs na pasta `data/bronze/`.  
-- **Transform:** os arquivos brutos são processados e padronizados em CSVs limpos na pasta `data/silver/`, prontos para análise e integração.
+- **🟤 bronze:** coleta de dados brutos diretamente dos sites das franquias (HTMLs e textos sem padronização).  
+- **⚪ silver_raw:** limpeza e padronização dos dados coletados, gerando csv prontos para consumo pelo projeto BI.
 
-## 📊 Dados coletados
-Os dados extraídos são estruturados no seguinte formato:
+---
 
-| empresa   | franquia | nome da loja | endereço | bairro | cidade | estado | CEP | telefone | horário de funcionamento | produtos para | serviços disponíveis |
-|-----------|----------|--------------|----------|--------|--------|--------|-----|----------|--------------------------|---------------|-----------------------|
+## 📊 Estrutura dos dados
+Os dados padronizados (silver_raw) são salvos com o seguinte formato de colunas:
+
+| empresa | nome | endereco | bairro | cidade | estado | cep |
+|----------|------|-----------|--------|--------|--------|-----|
+
+---
+
+## 🧩 Fluxo de Dados
+
+```mermaid
+graph TD
+    A[bronze<br>dados brutos] --> B[silver_raw<br>dados tratados e padronizados]
+    B --> C[[petstore-bi<br>silver → gold → Banco de Dados]]
+```
+
+---
 
 ## 🚀 Possíveis usos
 - Consultar todas as lojas de uma franquia específica.  
-- Mapear presença de lojas por cidade/estado.  
-- Identificar disponibilidade de serviços oferecidos em diferentes regiões.  
-- Construir dashboards e análises.
+- Mapear presença de lojas por cidade ou estado.  
+- Facilitar análises regionais no projeto `petstore-bi`.  
+- Alimentar pipelines de dados e dashboards.
+
+---
 
 ## ⚙️ Tecnologias
-- [selenium](https://pypi.org/project/selenium/) → automação de navegação e captura de páginas dinâmicas  
-- [beautifulsoup4](https://pypi.org/project/beautifulsoup4/) → parsing de HTML  
-- [lxml](https://pypi.org/project/lxml/) → processamento rápido de HTML/XML  
-- [pandas](https://pypi.org/project/pandas/) → manipulação e estruturação de dados  
+- [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e captura de páginas dinâmicas  
+- [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) → parsing e extração de informações de HTML  
+- [**lxml**](https://pypi.org/project/lxml/) → processamento rápido de HTML/XML  
+- [**pandas**](https://pypi.org/project/pandas/) → manipulação e estruturação de dados tabulares  
 
-## 📂 Saída
-- **Bronze:** CSVs brutos na pasta `data/bronze/` (ex.: `petz_bronze.csv`).  
-- **Silver:** CSVs tratados e padronizados na pasta `data/silver/` (ex.: `petz_silver.csv`).  
+---
 
-## 📊 Redes suportadas
+## 🏪 Redes suportadas
 Atualmente, o projeto coleta dados das seguintes redes:
 
-- **Petz** 
-- **Cobasi**
-- **Petlove**   
-- **Petland**   
+- **Petz**  
+- **Cobasi**  
+- **Petlove**  
+- **Petland**
+
+---
+
+## 🔗 Integração com o projeto BI
+Os arquivos gerados na pasta `data/silver_raw/` são consumidos diretamente pelo repositório [**`petstore-bi`**](https://github.com/rafa-trindade/petstore-bi) através do link “raw” do GitHub:
+
+```python
+url = "https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/main/data/silver_raw/petland.csv"
+df = pd.read_csv(url)
+```
