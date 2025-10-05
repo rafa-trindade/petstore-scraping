@@ -34,6 +34,15 @@ graph TD
     A[[petstore-scraping<br>Bronze]] --> B[petstore-etl<br>Silver e Gold]
     B --> C[petstore-bi<br>BI e Dashboards]
 ```
+---
+
+## 📊 Estrutura do Projeto Final
+
+| Repositório               | Função        | Camada                     | Principais Tecnologias        |
+| ----------------- | ----------------------------- | ------------------ | -------------------------------------- |
+| [`petstore-scraping`](https://github.com/rafa-trindade/petstore-scraping) | Coleta de dados de franquias  | 🟤 Bronze          | Selenium, BeautifulSoup4, lxml, pandas |
+| [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) | Limpeza, padronização e carga | ⚪ Silver / 🟡 Gold | pandas, brazilcep, requests, Nominatim |
+| [`petstore-bi`](https://github.com/rafa-trindade/petstore-etl) | Visualização e dashboards     | BI                 | Streamlit, Plotly, pandas              |
 
 ---
 
@@ -86,13 +95,3 @@ Atualmente, o projeto coleta dados das seguintes redes:
 ## 🔗 Integração com Projeto de Transformação e Carga
 
 Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) para limpeza, padronização e carga no banco de dados.
-
----
-
-## 📊 Estrutura do Projeto Final
-
-| Repositório       | Função                        | Camada             | Principais Tecnologias                 |
-| ----------------- | ----------------------------- | ------------------ | -------------------------------------- |
-| [`petstore-scraping`](https://github.com/rafa-trindade/petstore-scraping) | Coleta de dados de franquias  | 🟤 Bronze          | Selenium, BeautifulSoup4, lxml, pandas |
-| [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) | Limpeza, padronização e carga | ⚪ Silver / 🟡 Gold | pandas, brazilcep, requests, Nominatim |
-| [`petstore-bi`](https://github.com/rafa-trindade/petstore-etl) | Visualização e dashboards     | BI                 | Streamlit, Plotly, pandas              |
