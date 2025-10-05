@@ -46,16 +46,6 @@ graph TD
 
 ---
 
-## 🏪 Redes Suportadas
-
-Atualmente, o projeto coleta dados das seguintes redes:
-
-* **Petz**
-* **Cobasi**
-* **Petlove**
-
----
-
 ## ⚙️ Tecnologias e Bibliotecas
 
 * [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e captura de páginas dinâmicas  
@@ -95,3 +85,13 @@ Atualmente, o projeto coleta dados das seguintes redes:
 ## 🔗 Integração com Projeto de Transformação e Carga
 
 Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) para limpeza, padronização e carga no banco de dados.
+
+---
+
+## 🏪 Redes Suportadas
+
+Atualmente, o projeto coleta dados das seguintes redes:
+
+* **Petz**
+* **Cobasi**
+* **Petlove**
