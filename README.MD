@@ -46,7 +46,7 @@ graph TD
 
 ---
 
-## ⚙️ Tecnologias e Bibliotecas
+## ⚙️ Tecnologias e Bibliotecas `petstore-scraping`
 
 * [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e captura de páginas dinâmicas  
 * [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) → parsing e extração de informações de HTML  
@@ -55,7 +55,7 @@ graph TD
 
 ---
 
-## 🖥️ Log de Execução
+## 🖥️ Log de Execução `petstore-scraping`
 
 ```text
 ----------------------------------------------
