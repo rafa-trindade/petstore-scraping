@@ -67,6 +67,33 @@ Atualmente, o projeto coleta dados das seguintes redes:
 
 ---
 
+## ⚙️ Log de Execução
+
+```text
+----------------------------------------------
+- Coletando dados da Petz...
+----------------------------------------------
+- Processo concluído. 264 lojas salvas em data/bronze/petz_bronze.csv
+
+----------------------------------------------
+- Coletando dados da Cobasi...
+----------------------------------------------
+- Processo concluído. 255 lojas salvas em data/bronze/cobasi_bronze.csv
+
+----------------------------------------------
+- Coletando dados da Petlove...
+----------------------------------------------
+- Processo concluído. 14 lojas salvas em data/bronze/petlove_bronze.csv
+
+----------------------------------------------
+- Unificação de arquivos Bronze...
+----------------------------------------------
+- Processo concluído. 533 lojas salvas em data/bronze/lojas_bronze.csv
+```
+🔗 [Ver log completo](logs/log.txt)
+
+---
+
 ## 🔗 Integração com projetos de transformação
 
 Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto **`petstore-etl`** para limpeza, padronização e carga no banco de dados.

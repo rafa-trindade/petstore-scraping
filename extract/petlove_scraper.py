@@ -69,8 +69,6 @@ def scrape_petlove(url):
             return None
         processed_keys.add(key)
 
-        print(f"  + [{idx}] {nome} — {endereco}, {bairro}, {cidade}, {estado}, {cep}")
-
         return {
             "empresa": "petlove",
             "nome": nome,
@@ -83,7 +81,6 @@ def scrape_petlove(url):
 
     # Processa cards iniciais
     cards_inicial = driver.find_elements(By.CSS_SELECTOR, "div.shop__card")
-    print(f"Coletando lojas do grupo inicial já expandido ({len(cards_inicial)} cards encontrados).")
 
     for card in cards_inicial:
         if not card.is_displayed():
@@ -98,7 +95,6 @@ def scrape_petlove(url):
     # Processa accordions restantes
     accordions = driver.find_elements(By.CSS_SELECTOR, "div.shops__accordion")
     n_groups = len(accordions)
-    print(f"Encontrados {n_groups} grupos (accordions) na página.")
 
     for idx in range(1, n_groups):
         try:
@@ -125,15 +121,11 @@ def scrape_petlove(url):
                 except StaleElementReferenceException:
                     continue
 
-            print(f"Grupo {idx+1}/{n_groups} — lojas coletadas neste grupo: {collected_in_group}")
-
         except Exception as e:
             print(f"Erro processando grupo {idx+1}: {e}")
             continue
 
     driver.quit()
-
-    print(f"Total bruto de entradas coletadas: {len(lista_lojas)}")
 
     df = pd.DataFrame(lista_lojas)
     if df.empty:
