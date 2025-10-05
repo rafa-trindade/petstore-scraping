@@ -34,8 +34,8 @@ Os dados brutos coletados (bronze) podem conter as seguintes colunas mínimas, d
 
 ```mermaid
 graph TD
-    A[petstore-scraping<br>camada Bronze<br>dados brutos] --> B[petstore-etl<br>camadas Silver/Gold<br>dados tratados e carregados]
-    B --> C[[petstore-bi<br>BI, dashboards e análises]]
+    A[petstore-scraping<br>Bronze] --> B[petstore-etl<br>Silver e Gold]
+    B --> C[[petstore-bi<br>BI e dashboards]]
 ```
 
 ---
