@@ -3,7 +3,7 @@
 Projeto responsável pela **extração de dados** de lojas e franquias do setor pet.
 Esta etapa compõe a **camada Bronze** da arquitetura de dados, focada exclusivamente na **coleta bruta e padronização mínima** das informações.
 
-Os dados extraídos por este scraper serão consumidos pelo projeto **`datastore-transform-load`**, que fará o tratamento Silver e Gold, carga no banco de dados, e posterior consumo pelo repositório **`datastore-bi`** para análises e dashboards.
+Os dados extraídos por este scraper serão consumidos pelo projeto **`petstore-transform-load`**, que fará o tratamento Silver e Gold, carga no banco de dados, e posterior consumo pelo repositório **`datastore-bi`** para análises e dashboards.
 
 ---
 
@@ -15,7 +15,7 @@ O projeto é dividido em **uma camada principal**:
 
 * **🟤 bronze:** coleta de dados brutos diretamente dos sites das franquias (HTMLs e textos sem padronização).
 
-A camada Silver/Gold é responsabilidade do projeto `datastore-transform-load`.
+A camada Silver/Gold é responsabilidade do projeto `petstore-transform-load`.
 
 ---
 
@@ -34,7 +34,7 @@ Os dados brutos coletados (bronze) podem conter as seguintes colunas mínimas, d
 
 ```mermaid
 graph TD
-    A[petstore-scraping<br>camada Bronze<br>dados brutos] --> B[datastore-transform-load<br>camadas Silver/Gold<br>dados tratados e carregados]
+    A[petstore-scraping<br>camada Bronze<br>dados brutos] --> B[petstore-transform-load<br>camadas Silver/Gold<br>dados tratados e carregados]
     B --> C[[datastore-bi<br>BI, dashboards e análises]]
 ```
 
@@ -43,7 +43,7 @@ graph TD
 ## 🚀 Possíveis usos
 
 * Coleta automatizada de informações de lojas por franquia.
-* Base para pipelines de transformação e enriquecimento em `datastore-transform-load`.
+* Base para pipelines de transformação e enriquecimento em `petstore-transform-load`.
 * Alimentação de análises e dashboards no `datastore-bi`.
 
 ---
@@ -70,7 +70,7 @@ Atualmente, o projeto coleta dados das seguintes redes:
 
 ## 🔗 Integração com projetos de transformação
 
-Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto **`datastore-transform-load`** para limpeza, padronização e carga no banco de dados.
+Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto **`petstore-transform-load`** para limpeza, padronização e carga no banco de dados.
 
 Exemplo de leitura de CSV bruto:
 
