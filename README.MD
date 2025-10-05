@@ -22,8 +22,8 @@ A camadas ⚪ Silver e 🟡 Gold serão executadas pelo projeto [`petstore-etl`]
 
 Os dados brutos coletados estão organizados em um **DataFrame** com as seguintes colunas:
 
-| Empresa | Nome da Loja | Logradouro | Bairro | Cidade | Estado | CEP |
-| ------- | ------------ | ---------- | ------ | ------ | ------ | --- |
+| Empresa | Nome da Loja | Endereço | Bairro | Cidade | Estado | CEP | Data Extração |
+| ------- | ------------ | -------- | ------ | ------ | ------ | --- | ------------- |
 
 ---
 
@@ -77,6 +77,7 @@ graph TD
 - Unificação de arquivos Bronze...
 ----------------------------------------------
 - Processo concluído. 533 lojas salvas em data/bronze/lojas_bronze.csv
+- Data da extração: 05/10/2025
 ```
 🔗 [Ver log completo](https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/refs/heads/main/logs/log.txt)
 

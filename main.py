@@ -60,9 +60,11 @@ def main():
     print("- Unificação de arquivos Bronze...")
     print("----------------------------------------------")
     df_final = pd.concat([df_petz, df_cobasi, df_petlove], ignore_index=True)
+    df_final["data_extracao"] = pd.to_datetime(pd.Timestamp.now()).strftime("%d/%m/%Y")
+    data_extracao = df_final['data_extracao'].iloc[0]
     df_final.to_csv("data/bronze/lojas_bronze.csv", index=False, sep=";", encoding="utf-8-sig")
     print(f"- Processo concluído. {len(df_final)} lojas salvas em data/bronze/lojas_bronze.csv")
-
+    print(f"- Data da extração: {data_extracao}")
 
 if __name__ == "__main__":
     main()
