@@ -1,32 +1,29 @@
 # 🐾 petstore-scraping
 
-Projeto responsável pela **extração de dados** de lojas e franquias do setor pet.  
-Esta etapa compõe a **camada Bronze** da arquitetura de dados, focada exclusivamente na **coleta bruta e padronização mínima** das informações.
+Projeto responsável pela **extração de dados** de lojas e franquias do setor pet.
 
-Os dados extraídos por este scraper serão consumidos pelo projeto **`petstore-etl`**, que fará o tratamento Silver e Gold, carga no banco de dados, e posterior consumo pelo repositório **`petstore-bi`** para análises e dashboards.
+Esta etapa compõe a **camada Bronze** da arquitetura de dados, focada exclusivamente na **coleta bruta** das informações.
+
+Os dados extraídos por este scraper serão consumidos pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl), que fará o tratamento Silver e Gold, carga no banco de dados, e posterior consumo pelo repositório [`petstore-bi`](https://github.com/rafa-trindade/petstore-bi) para BI e Dashboards.
 
 ---
 
 ## 📌 Descrição
 
-O `petstore-scraping` automatiza a coleta de dados de **franquias do segmento pet**, padronizando apenas o necessário para integração com o projeto de transformação.
+O `petstore-scraping` automatiza a coleta de dados de **franquias do segmento pet** para integração com o projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) e executa as seguintes camadas:
 
-O projeto é dividido em **uma camada principal**:
+* **🟤 Extractc (bronze):** coleta via scraping de dados brutos diretamente dos sites das franquias (HTMLs e textos sem padronização).
 
-* **🟤 bronze:** coleta de dados brutos diretamente dos sites das franquias (HTMLs e textos sem padronização).
-
-A camada Silver/Gold é responsabilidade do projeto `petstore-etl`.
+A camadas ⚪ Silver e 🟡 Gold serão executadas pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl).
 
 ---
 
-## 📊 Estrutura dos dados
+## 📊 Estrutura dos Dados
 
-Os dados brutos coletados (bronze) podem conter as seguintes colunas mínimas, dependendo da franquia:
+Os dados brutos coletados estão organizados em um **DataFrame** com as seguintes colunas:
 
-| empresa | nome | logradouro | bairro | cidade | estado | cep |
-| ------- | ---- | ---------- | ------ | ------ | ------ | --- |
-
-> O Silver/Gold preencherá, corrigirá e padronizará estes campos para análise final.
+| Empresa | Nome da Loja | Logradouro | Bairro | Cidade | Estado | CEP |
+| ------- | ------------ | ---------- | ------ | ------ | ------ | --- |
 
 ---
 
@@ -40,24 +37,7 @@ graph TD
 
 ---
 
-## 🚀 Possíveis usos
-
-* Coleta automatizada de informações de lojas por franquia.
-* Base para pipelines de transformação e enriquecimento em `petstore-etl`.
-* Alimentação de análises e dashboards no `petstore-bi`.
-
----
-
-## ⚙️ Tecnologias
-
-* [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e captura de páginas dinâmicas  
-* [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) → parsing e extração de informações de HTML  
-* [**lxml**](https://pypi.org/project/lxml/) → processamento rápido de HTML/XML  
-* [**pandas**](https://pypi.org/project/pandas/) → manipulação e estruturação de dados tabulares  
-
----
-
-## 🏪 Redes suportadas
+## 🏪 Redes Suportadas
 
 Atualmente, o projeto coleta dados das seguintes redes:
 
@@ -67,7 +47,16 @@ Atualmente, o projeto coleta dados das seguintes redes:
 
 ---
 
-## ⚙️ Log de Execução
+## ⚙️ Tecnologias e Bibliotecas
+
+* [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e captura de páginas dinâmicas  
+* [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) → parsing e extração de informações de HTML  
+* [**lxml**](https://pypi.org/project/lxml/) → processamento rápido de HTML/XML  
+* [**pandas**](https://pypi.org/project/pandas/) → manipulação e estruturação de dados tabulares  
+
+---
+
+## 🖥️ Log de Execução
 
 ```text
 ----------------------------------------------
@@ -94,6 +83,6 @@ Atualmente, o projeto coleta dados das seguintes redes:
 
 ---
 
-## 🔗 Integração com projeto de transformação
+## 🔗 Integração com Projeto de Transformação
 
-Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto **`petstore-etl`** para limpeza, padronização e carga no banco de dados.
+Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) para limpeza, padronização e carga no banco de dados.
