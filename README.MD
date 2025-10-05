@@ -94,14 +94,6 @@ Atualmente, o projeto coleta dados das seguintes redes:
 
 ---
 
-## 🔗 Integração com projetos de transformação
+## 🔗 Integração com projeto de transformação
 
 Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto **`petstore-etl`** para limpeza, padronização e carga no banco de dados.
-
-Exemplo de leitura de CSV bruto:
-
-```python
-import pandas as pd
-
-df = pd.read_csv("data/bronze/lojas_bronze.csv", sep=";", encoding="utf-8")
-```
