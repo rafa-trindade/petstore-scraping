@@ -78,7 +78,7 @@ graph TD
 ----------------------------------------------
 - Processo concluído. 533 lojas salvas em data/bronze/lojas_bronze.csv
 ```
-🔗 [Ver log completo](logs/log.txt)
+🔗 [Ver log completo](https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/refs/heads/main/logs/log.txt)
 
 ---
 
