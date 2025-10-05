@@ -22,8 +22,8 @@ A camadas ⚪ Silver e 🟡 Gold serão executadas pelo projeto [`petstore-etl`]
 
 Os dados brutos coletados estão organizados em um **DataFrame** com as seguintes colunas:
 
-| Empresa | Nome da Loja | Endereço | Bairro | Cidade | Estado | CEP | Data Extração |
-| ------- | ------------ | -------- | ------ | ------ | ------ | --- | ------------- |
+| empresa | nome | logradouro | bairro | cidade | estado | cep | latitude | longitude | data_extracao |
+| ------- | ---- | ---------- | ------ | ------ | ------ | --- | -------- | --------- | ------------- |
 
 ---
 
