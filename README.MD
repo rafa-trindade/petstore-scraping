@@ -83,6 +83,6 @@ Atualmente, o projeto coleta dados das seguintes redes:
 
 ---
 
-## 🔗 Integração com Projeto de Transformação
+## 🔗 Integração com Projeto de Transformação e Carga
 
 Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) para limpeza, padronização e carga no banco de dados.
