@@ -1,21 +1,13 @@
 import os
 import pandas as pd
-from transform.utils import preencher_endereco
 
 from extract.petz_scraper import scrape_petz
 from extract.cobasi_scraper import scrape_cobasi
 from extract.petlove_scraper import scrape_petlove
 from extract.petland_scraper import scrape_petland
 
-from transform.data_processing import tratarmento_petz
-from transform.data_processing import tratarmento_cobasi
-from transform.data_processing import tratarmento_petlove
-from transform.data_processing import tratarmento_petland
-
 BRONZE_DIR = os.path.join("data", "bronze")
-SILVER_DIR = os.path.join("data", "silver_raw")
 os.makedirs(BRONZE_DIR, exist_ok=True)
-os.makedirs(SILVER_DIR, exist_ok=True)
 
 def main():
     url = "https://www.petz.com.br/nossas-lojas"
@@ -42,32 +34,9 @@ def main():
     df_petland.to_csv(os.path.join(BRONZE_DIR, "petland_bronze.csv"), index=False, encoding="utf-8-sig", sep=";")
     print(f"{len(df_petland)} lojas salvas em data/bronze/petland_bronze.csv")
     
-    # --------------- Transformação ------------------
-
-    # Petz
-    #print("Transformando dados da Petz...")
-    #df_petz_silver = tratarmento_petz(os.path.join(BRONZE_DIR, "petz_bronze.csv"))
-    #print(f"{len(df_petz_silver)} lojas salvas.")
-
-    # Cobasi
-    #print("Transformando dados da Cobasi...")
-    #df_cobasi_silver = tratarmento_cobasi(os.path.join(BRONZE_DIR, "cobasi_bronze.csv"))
-    #print(f"{len(df_cobasi_silver)} lojas salvas.")
-
-    # Petlove
-    #print("Transformando dados da Petlove...")
-    #df_petlove_silver = tratarmento_petlove(os.path.join(BRONZE_DIR, "petlove_bronze.csv"))
-    #print(f"{len(df_petlove_silver)} lojas salvas.")
-
-    # Petland
-    #print("Transformando dados da Petland...")
-    #df_petland_silver = tratarmento_petland(os.path.join(BRONZE_DIR, "petland_bronze.csv"))
-    #print(f"{len(df_petland_silver)} lojas salvas.")
-
     df_final = pd.concat([df_petz, df_cobasi, df_petlove, df_petland], ignore_index=True)
-    df_final.to_csv("data/silver_raw/lojas_silver_raw.csv", index=False, sep=";", encoding="utf-8-sig")
-    df_final = preencher_endereco(df_final)
-    print(f"{len(df_final)} lojas salvas em data/silver_raw/lojas_silver_raw.csv")
+    df_final.to_csv("data/bronze/lojas_bronze.csv", index=False, sep=";", encoding="utf-8-sig")
+    print(f"{len(df_final)} lojas salvas em data/bronze/lojas_bronze.csv")
 
 
 if __name__ == "__main__":
