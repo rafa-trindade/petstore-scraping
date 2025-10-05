@@ -1,4 +1,4 @@
-# 🐾 petstore-scraping | Extract → Transform
+# 🐾 petstore-scraping
 
 Projeto de **scraping** para coletar informações de lojas do setor pet, estruturando os dados em formato padronizado para análise, consulta e integração.  
 
@@ -22,7 +22,7 @@ O projeto é dividido em duas camadas principais:
 Os dados padronizados (silver_raw) são salvos com o seguinte formato de colunas:
 
 | empresa | nome | endereco | bairro | cidade | estado | cep |
-|----------|------|-----------|--------|--------|--------|-----|
+|---------|------|---------|-------|--------|--------|-----|
 
 ---
 
