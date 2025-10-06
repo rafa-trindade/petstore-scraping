@@ -31,7 +31,7 @@ Os dados brutos coletados estão organizados em um **DataFrame** com as seguinte
 
 ```mermaid
 graph TD
-    A[[petstore-scraping<br>Bronze]] --> B[petstore-etl<br>Silver e Gold<br>📦 PostgreSQL]
+    A[[petstore-scraping<br>Bronze]] --> B[petstore-etl<br>Silver e Gold<br>PostgreSQL]
     B --> C[petstore-bi<br>BI e Dashboards]
 ```
 ---
