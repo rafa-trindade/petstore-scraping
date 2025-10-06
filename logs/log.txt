@@ -14,7 +14,12 @@
 - Processo concluído. 14 lojas salvas em data/bronze/petlove_bronze.csv
 
 ----------------------------------------------
+- Coletando dados da Petland...
+----------------------------------------------
+- Processo concluído. 132 lojas salvas em data/bronze/petland_bronze.csv
+
+----------------------------------------------
 - Unificação de arquivos Bronze...
 ----------------------------------------------
-- Processo concluído. 533 lojas salvas em data/bronze/lojas_bronze.csv
-- Data da extração: 05/10/2025
+- Processo concluído. 665 lojas salvas em data/bronze/lojas_bronze.csv
+- Data da extração: 06/10/2025

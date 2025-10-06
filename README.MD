@@ -96,3 +96,4 @@ Atualmente, o projeto coleta dados das seguintes redes:
 * **Petz**
 * **Cobasi**
 * **Petlove**
+* **Petland**
