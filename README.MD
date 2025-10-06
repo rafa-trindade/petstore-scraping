@@ -18,7 +18,9 @@ A camadas ⚪ Silver e 🟡 Gold serão executadas pelo projeto [`petstore-etl`]
 
 ---
 
-## 📊 Metadados
+## 📊 Estrutura dos Dados e Metadados
+
+Os dados brutos coletados estão organizados em um **DataFrame** com as seguintes colunas:
 
 | Coluna        | Tipo   | Descrição                   | Valores possíveis / Observações | Unidade | Camada   | Origem           | Última Atualização |
 | ------------- | ------ | --------------------------- | ------------------------------- | ------- | -------- | ---------------- | ------------------ |
