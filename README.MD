@@ -18,12 +18,20 @@ A camadas ⚪ Silver e 🟡 Gold serão executadas pelo projeto [`petstore-etl`]
 
 ---
 
-## 📊 Estrutura dos Dados
+## 📊 Estrutura dos Dados e Metadados
 
 Os dados brutos coletados estão organizados em um **DataFrame** com as seguintes colunas:
 
-| empresa | nome | logradouro | bairro | cidade | estado | cep | latitude | longitude | data_extracao |
-| ------- | ---- | ---------- | ------ | ------ | ------ | --- | -------- | --------- | ------------- |
+| Coluna        | Tipo   | Descrição                   | Valores possíveis / Observações | Unidade | Camada   | Origem           | Última Atualização |
+| ------------- | ------ | --------------------------- | ------------------------------- | ------- | -------- | ---------------- | ------------------ |
+| empresa       | string | Nome da rede                | Petz, Cobasi, Petlove...        | -       | Bronze   | petstore-sraping | 2025-10-05         |
+| nome          | string | Nome da loja                | -                               | -       | Bronze   | petstore-sraping | 2025-10-05         |
+| logradouro    | string | Logradouro simplificado     | -                               | -       | Bronze   | petstore-sraping | 2025-10-05         |
+| bairro        | string | Bairro                      | -                               | -       | Bronze   | petstore-sraping | 2025-10-05         |
+| cidade        | string | Cidade                      | -                               | -       | Bronze   | petstore-sraping | 2025-10-05         |
+| estado        | string | Sigla do estado             | SP, RJ, MG...                   | -       | Bronze   | petstore-sraping | 2025-10-05         |
+| cep           | string | CEP normalizado             | 00000-000                       | -       | Bronze   | petstore-sraping | 2025-10-05         |
+| data_extracao | date   | Data da extração do dado    | DD-MM-AAAA                      | -       | Bronze   | petstore-sraping | 2025-10-05         |
 
 ---
 
