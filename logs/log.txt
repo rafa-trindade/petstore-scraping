@@ -11,6 +11,7 @@
 ----------------------------------------------
 - Coletando dados da Pop Pet Center...
 ----------------------------------------------
+126 lojas salvas em pop_pet_lojas.csv
 - Processo concluído. 126 lojas salvas em data/bronze/pop_pet_bronze.csv
 
 ----------------------------------------------

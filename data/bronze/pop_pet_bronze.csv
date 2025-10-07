@@ -1,4 +1,4 @@
-﻿empresa;nome;endereco;bairro;cidade;estado;cep;latitude;longitude
+﻿empresa;nome;edereco;bairro;cidade;estado;cep;latitude;longitude
 pop pet;Pop Pet Jardim Nova Esperança – Goiânia GO;;;;;;-16.6461774;-49.3234755
 pop pet;Pop Pet Abadia de Goiás (Parque Izabel);;;;;;-16.7615256;-49.4381983
 pop pet;Pop Pet Morada Dos Passaros – Ap. de Goiânia GO;;;;;;-16.7809472;-49.2956686
@@ -113,15 +113,15 @@ pop pet;Pop Pet Av. São Paulo – Aparecida de Goiânia GO;;;;;;;
 pop pet;Pop Pet Veiga Jardim – Aparecida de Goiânia GO;;;;;;;
 pop pet;Pop Pet Vila Alzira – Aparecida de Goiânia GO;;;;;;;
 pop pet;Pop Pet Novo Horizonte – Goiânia GO;;;;;;;
-pop pet;Pop Pet Bela Vista de Goiás – GO;;;;;;;
-pop pet;Pop Pet Indiara – GO;;;;;;;
-pop pet;Pop Pet BH – Minas Gerais;;;;;;;
-pop pet;Pop Pet Jardim América (C1) Goiânia – GO;;;;;;;
-pop pet;Pop Pet Silvania – GO;;;;;;;
-pop pet;Pop Pet Palmas (QD 804) – TO;;;;;;;
-pop pet;Pop Pet Conj Riviera – Goiânia GO;;;;;;;
-pop pet;Pop Pet Acreuna – GO;;;;;;;
-pop pet;Pop Pet Canaa dos Carajas – PA;;;;;;;
-pop pet;Pop Pet Colina Azul – Goiânia GO;;;;;;;
-pop pet;Pop Pet Formosa – GO;;;;;;;
-pop pet;Pop Pet Anicuns – GO;;;;;;;
+pop pet;Pop Pet Bela Vista de Goiás – GO;;;;;75240-000;;
+pop pet;Pop Pet Indiara – GO;;;;;74955-000;;
+pop pet;Pop Pet BH – Minas Gerais;;;;;31950-390;;
+pop pet;Pop Pet Jardim América (C1) Goiânia – GO;;;;;74265-010;;
+pop pet;Pop Pet Silvania – GO;;;;;75180-000;;
+pop pet;Pop Pet Palmas (QD 804) – TO;;;;;77023-044;;
+pop pet;Pop Pet Conj Riviera – Goiânia GO;;;;;74730-010;;
+pop pet;Pop Pet Acreuna – GO;;;;;75960-000;;
+pop pet;Pop Pet Canaa dos Carajas – PA;;;;;68537-000;;
+pop pet;Pop Pet Colina Azul – Goiânia GO;;;;;74970-760;;
+pop pet;Pop Pet Formosa – GO;;;;;73813-010;;
+pop pet;Pop Pet Anicuns – GO;;;;;76170-000;;
