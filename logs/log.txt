@@ -23,4 +23,4 @@
 - Unificação de arquivos Bronze...
 ----------------------------------------------
 - Processo concluído. 777 lojas salvas em data/bronze/lojas_bronze.csv
-- Data da extração: 06/10/2025
+- Data da extração: 07/10/2025

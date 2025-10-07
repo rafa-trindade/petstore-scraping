@@ -45,7 +45,7 @@ def scrape_pop_pet(url):
         lista_lojas.append({
             "empresa": "pop pet",
             "nome": nome,
-            "edereco": "",
+            "endereco": "",
             "bairro": "",
             "cidade": "",
             "estado": "",

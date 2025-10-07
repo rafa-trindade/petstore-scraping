@@ -41,14 +41,10 @@ def scrape_petland(url):
         nome_tag = loja.select_one("h2.elementor-heading-title a")
         nome = nome_tag.get_text(strip=True) if nome_tag else ""
 
-        widget_divs = loja.select("div.elementor-widget-text-editor div")
-        endereco = widget_divs[0].get_text(strip=True) if len(widget_divs) >= 1 else ""
-        telefone = widget_divs[1].get_text(strip=True) if len(widget_divs) >= 2 else ""
-
         lista_lojas.append({
             "empresa": "petland",
             "nome": nome,
-            "endereco": endereco,
+            "endereco": "",
             "bairro": "",
             "cidade": "",  
             "estado": "",
