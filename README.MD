@@ -77,10 +77,16 @@ graph TD
 - Processo concluído. 255 lojas salvas em data/bronze/cobasi_bronze.csv
 
 ----------------------------------------------
+- Coletando dados da Pop Pet Center...
+----------------------------------------------
+- Processo concluído. 126 lojas salvas em data/bronze/pop_pet_bronze.csv
+
+----------------------------------------------
 - Unificação de arquivos Bronze...
 ----------------------------------------------
-- Processo concluído. 519 lojas salvas em data/bronze/lojas_bronze.csv
+- Processo concluído. 645 lojas salvas em data/bronze/lojas_bronze.csv
 - Data da extração: 06/10/2025
+
 ```
 🔗 [Ver log completo](https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/refs/heads/main/logs/log.txt)
 
@@ -94,7 +100,8 @@ Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`
 
 ## 🏪 Redes Suportadas
 
-Atualmente, o projeto coleta dados das seguintes redes para estudo:
+Atualmente, o projeto coleta dados das seguintes redes nacionais para estudo:
 
 * **Petz**
 * **Cobasi**
+* **Pop Pet Center**
