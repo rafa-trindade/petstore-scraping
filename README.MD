@@ -79,13 +79,20 @@ graph TD
 ----------------------------------------------
 - Coletando dados da Pop Pet Center...
 ----------------------------------------------
+126 lojas salvas em pop_pet_lojas.csv
 - Processo concluído. 126 lojas salvas em data/bronze/pop_pet_bronze.csv
+
+----------------------------------------------
+- Coletando dados da Petland...
+----------------------------------------------
+- Processo concluído. 132 lojas salvas em data/bronze/petland_bronze.csv
 
 ----------------------------------------------
 - Unificação de arquivos Bronze...
 ----------------------------------------------
-- Processo concluído. 645 lojas salvas em data/bronze/lojas_bronze.csv
+- Processo concluído. 777 lojas salvas em data/bronze/lojas_bronze.csv
 - Data da extração: 06/10/2025
+
 
 ```
 🔗 [Ver log completo](https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/refs/heads/main/logs/log.txt)
@@ -105,3 +112,5 @@ Atualmente, o projeto coleta dados das seguintes redes nacionais para estudo:
 * **Petz**
 * **Cobasi**
 * **Pop Pet Center**
+* **Petland**
+

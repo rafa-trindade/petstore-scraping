@@ -5,6 +5,7 @@ import pandas as pd
 from extract.petz_scraper import scrape_petz
 from extract.cobasi_scraper import scrape_cobasi
 from extract.pop_pet_scraper import scrape_pop_pet
+from extract.petland_scraper import scrape_petland
 
 class Logger:
     def __init__(self, filename):
@@ -55,11 +56,19 @@ def main():
     df_pop_pet.to_csv(os.path.join(BRONZE_DIR, "pop_pet_bronze.csv"), index=False, encoding="utf-8-sig", sep=";")
     print(f"- Processo concluído. {len(df_pop_pet)} lojas salvas em data/bronze/pop_pet_bronze.csv")
 
+    print("\n----------------------------------------------")
+    print("- Coletando dados da Petland...")
+    print("----------------------------------------------")
+    url = "https://petlandbrasil.com.br/lojas/"
+    df_petland = scrape_petland(url)
+    df_petland.to_csv(os.path.join(BRONZE_DIR, "petland_bronze.csv"), index=False, encoding="utf-8-sig", sep=";")
+    print(f"- Processo concluído. {len(df_petland)} lojas salvas em data/bronze/petland_bronze.csv")
+
 
     print("\n----------------------------------------------")
     print("- Unificação de arquivos Bronze...")
     print("----------------------------------------------")
-    df_final = pd.concat([df_petz, df_cobasi, df_pop_pet], ignore_index=True)
+    df_final = pd.concat([df_petz, df_cobasi, df_pop_pet, df_petland], ignore_index=True)
     df_final["data_extracao"] = pd.to_datetime(pd.Timestamp.now()).strftime("%d/%m/%Y")
     data_extracao = df_final['data_extracao'].iloc[0]
     df_final.to_csv("data/bronze/lojas_bronze.csv", index=False, sep=";", encoding="utf-8-sig")
