@@ -97,7 +97,7 @@ Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`
 
 ---
 
-## 🏪 Redes Suportadas
+## 🏪 Redes Analisadas
 
 Atualmente, o projeto coleta dados das seguintes redes nacionais para estudo:
 
