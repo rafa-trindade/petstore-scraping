@@ -56,10 +56,11 @@ graph TD
 
 ## ⚙️ Tecnologias e Bibliotecas `petstore-scraping`
 
-* [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e captura de páginas dinâmicas  
-* [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) → parsing e extração de informações de HTML  
-* [**lxml**](https://pypi.org/project/lxml/) → processamento rápido de HTML/XML  
-* [**pandas**](https://pypi.org/project/pandas/) → manipulação e estruturação de dados tabulares  
+* [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e interação com páginas dinâmicas  
+* [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) → extração e análise de conteúdo HTML  
+* [**lxml**](https://pypi.org/project/lxml/) → parser rápido e eficiente para HTML e XML  
+* [**pandas**](https://pypi.org/project/pandas/) → manipulação, limpeza e análise de dados tabulares  
+* [**tabulate**](https://pypi.org/project/tabulate/) → exibição de dados em formato de tabela no terminal ou relatórios  
 
 ---
 
