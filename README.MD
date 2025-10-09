@@ -4,11 +4,11 @@ Projeto responsável pela **extração de dados** de lojas e franquias do setor 
 
 Esta etapa compõe a **camada Bronze** da arquitetura de dados, focada exclusivamente na **coleta bruta** das informações.
 
-Os dados extraídos por este scraper serão consumidos pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl), que fará o tratamento Silver e Gold, carga no banco de dados, e posterior consumo pelo repositório [`petstore-bi`](https://github.com/rafa-trindade/petstore-bi) para BI e Dashboards.
+Os dados extraídos por este scraper serão consumidos pelo projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl), que fará o tratamento Silver e Gold, carga no banco de dados, e posterior consumo pelo repositório [`petstore-bi`](https://github.com/rafa-trindade/petstore-bi) para análises e BI.
 
 ---
 
-## 📌 Descrição
+## 📌 Descrição:
 
 O `petstore-scraping` automatiza a coleta de dados de **franquias do segmento pet** para integração com o projeto [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) e executa as seguintes camadas:
 
@@ -18,7 +18,7 @@ A camadas ⚪ Silver e 🟡 Gold serão executadas pelo projeto [`petstore-etl`]
 
 ---
 
-## 📊 Estrutura dos Dados e Metadados
+## 📊 Estrutura dos Dados e Metadados:
 
 Os dados brutos coletados estão organizados em um **DataFrame** com as seguintes colunas:
 
@@ -35,7 +35,7 @@ Os dados brutos coletados estão organizados em um **DataFrame** com as seguinte
 
 ---
 
-## 🧩 Fluxo de Dados
+## 🧩 Fluxo de Dados:
 
 ```mermaid
 graph TD
@@ -44,17 +44,17 @@ graph TD
 ```
 ---
 
-## 📊 Estrutura do Projeto Final
+## 📊 Estrutura Geral do Projeto:
 
 | Repositório | Função | Camada | Principais Tecnologias |
 | ----------------- | ----------------------------- | ------------------ | -------------------------------------- |
 | [`petstore-scraping`](https://github.com/rafa-trindade/petstore-scraping) | Coleta de Dados de Franquias | 🟤 Bronze | Selenium, BeautifulSoup4, lxml, pandas |
-| [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) | Limpeza, Padronização e Carga | ⚪ Silver / 🟡 Gold | pandas, brazilcep, requests, numpy, tabulate, SQLAlchemy, psycopg2-binary, python-dotenv |
+| [`petstore-etl`](https://github.com/rafa-trindade/petstore-etl) | Limpeza, Padronização e Carga | ⚪ Silver / 🟡 Gold | requests, SQLAlchemy, pandas, Cep Aberto (API) |
 | [`petstore-bi`](https://github.com/rafa-trindade/petstore-bi) | BI e Dashboards | 📊 BI | Streamlit, Plotly, pandas |
 
 ---
 
-## ⚙️ Tecnologias e Bibliotecas `petstore-scraping`
+## ⚙️ Tecnologias e Bibliotecas `petstore-scraping`:
 
 * [**Selenium**](https://pypi.org/project/selenium/) → automação de navegação e interação com páginas dinâmicas  
 * [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) → extração e análise de conteúdo HTML  
@@ -64,7 +64,7 @@ graph TD
 
 ---
 
-## 🖥️ Log de Execução `petstore-scraping`
+## 🖥️ Log de Execução `petstore-scraping`:
 
 ```text
 - Coletando dados da Petz...
@@ -99,7 +99,7 @@ Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`
 
 ## 🏪 Redes Analisadas
 
-Atualmente, o projeto coleta dados das seguintes redes nacionais para estudo:
+Atualmente, o projeto coleta dados públicos das seguintes redes para estudo:
 
 * **Cobasi**
 * **Petland**
