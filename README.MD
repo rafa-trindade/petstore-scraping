@@ -66,7 +66,6 @@ graph TD
 ## 🖥️ Log de Execução `petstore-scraping`
 
 ```text
-----------------------------------------------
 - Coletando dados da Petz...
 ----------------------------------------------
 - Processo concluído. 264 lojas salvas em data/bronze/petz_bronze.csv
