@@ -54,8 +54,8 @@ def scrape_cobasi(url):
                     "empresa": "cobasi",
                     "nome": nome,
                     "endereco": endereco,
-                    "cidade": cidade,
                     "bairro": "",
+                    "cidade": cidade,
                     "estado": estado,
                     "cep": cep
                 })

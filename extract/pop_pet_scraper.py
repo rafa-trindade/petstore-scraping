@@ -26,7 +26,6 @@ def scrape_pop_pet(url):
 
     lojas_divs = soup.select("div.gw-gopf-post") 
     for loja in lojas_divs:
-        # Nome da loja
         nome_tag = loja.select_one("div.gw-gopf-post-title h2")
         nome = nome_tag.get_text(strip=True) if nome_tag else ""
 

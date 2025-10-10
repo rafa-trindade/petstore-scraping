@@ -14,7 +14,6 @@ HEADERS = {"Authorization": f"Token {API_TOKEN}"}
 def dados_por_latlong(df: pd.DataFrame) -> pd.DataFrame:
     url = "https://www.cepaberto.com/api/v3/nearest"
 
-    # Garantir que as colunas existam
     for col in ['endereco', 'bairro', 'cidade', 'estado', 'cep']:
         if col not in df.columns:
             df[col] = None
@@ -23,16 +22,14 @@ def dados_por_latlong(df: pd.DataFrame) -> pd.DataFrame:
         lat = row.get('latitude')
         lng = row.get('longitude')
 
-        # Verifica se lat/lng são números válidos
         if lat is None or lng is None:
             continue
         try:
             lat = float(lat)
             lng = float(lng)
         except (ValueError, TypeError):
-            continue  # Se não for número, pula a linha
+            continue
 
-        # Só aqui chamamos a API
         params = {'lat': lat, 'lng': lng}
         try:
             response = requests.get(url, headers=HEADERS, params=params, timeout=5)

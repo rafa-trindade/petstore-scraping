@@ -28,27 +28,21 @@ def scrape_petcamp(url):
     lojas_divs = soup.select("div.store")  # Ajuste caso necessário
 
     for loja in lojas_divs:
-        # Nome da loja
         nome_tag = loja.select_one("span.name")
         nome = nome_tag.get_text(strip=True) if nome_tag else ""
 
-        # Endereço
         endereco_tag = loja.select_one("span.address")
         endereco = endereco_tag.get_text(strip=True) if endereco_tag else ""
 
-        # Cidade
         cidade_tag = loja.select_one("span.city")
         cidade = cidade_tag.get_text(strip=True) if cidade_tag else ""
 
-        # Estado
         estado_tag = loja.select_one("span.state")
         estado = estado_tag.get_text(strip=True) if estado_tag else ""
 
-        # CEP (se houver)
         cep_tag = loja.select_one("span.store-cep")
         cep = cep_tag.get_text(strip=True) if cep_tag else ""
 
-        # Link do Google Maps (lat e long)
         link_mapa_tag = loja.find("a", href=re.compile(r"google.com/maps/search"))
         latitude = longitude = ""
         if link_mapa_tag and "href" in link_mapa_tag.attrs:
@@ -62,7 +56,7 @@ def scrape_petcamp(url):
             "empresa": "PetCamp",
             "nome": nome,
             "endereco": endereco,
-            "bairro": "",  # Não fornecido
+            "bairro": "",
             "cidade": cidade,
             "estado": estado,
             "cep": cep,
