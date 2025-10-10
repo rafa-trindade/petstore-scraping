@@ -112,7 +112,6 @@ Preenchendo Campos Ausentes: 100%|######################################| 126/12
 ----------------------------------------------
 - Processo concluído. 902 lojas salvas em data/bronze/lojas_bronze.csv
 - Data da extração: 10/10/2025
-
 ```
 🔗 [Ver log completo](https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/refs/heads/main/logs/log.txt)
 
@@ -129,6 +128,8 @@ Os arquivos gerados na pasta `data/bronze/` devem ser consumidos pelo projeto [`
 Atualmente, o projeto coleta dados públicos das seguintes redes para estudo:
 
 * **Cobasi**
+* **Pet Camp**
 * **Petland**
+* **Petlove**
 * **Petz**
-
+* **Pop Pet Center**
