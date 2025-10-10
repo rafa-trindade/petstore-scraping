@@ -67,14 +67,20 @@ graph TD
 ## 🖥️ Log de Execução `petstore-scraping`:
 
 ```text
-- Coletando dados da Petz...
-----------------------------------------------
-- Processo concluído. 264 lojas salvas em data/bronze/petz_bronze.csv
-
 ----------------------------------------------
 - Coletando dados da Cobasi...
 ----------------------------------------------
 - Processo concluído. 255 lojas salvas em data/bronze/cobasi_bronze.csv
+
+----------------------------------------------
+- Coletando dados da Petcamp...
+----------------------------------------------
+
+111 lojas encontradas
+
+Preenchendo Campos Ausentes: 100%|######################################| 111/111
+
+- Processo concluído. 111 lojas salvas em data/bronze/pet_camp_bronze.csv
 
 ----------------------------------------------
 - Coletando dados da Petland...
@@ -82,10 +88,31 @@ graph TD
 - Processo concluído. 132 lojas salvas em data/bronze/petland_bronze.csv
 
 ----------------------------------------------
+- Coletando dados da Petlove...
+----------------------------------------------
+- Processo concluído. 14 lojas salvas em data/bronze/petlove_bronze.csv
+
+----------------------------------------------
+- Coletando dados da Petz...
+----------------------------------------------
+- Processo concluído. 264 lojas salvas em data/bronze/petz_bronze.csv
+
+----------------------------------------------
+- Coletando dados da Pop Pet Center...
+----------------------------------------------
+
+126 lojas encontradas
+
+Preenchendo Campos Ausentes: 100%|######################################| 126/126
+
+- Processo concluído. 126 lojas salvas em data/bronze/pop_pet_bronze.csv
+
+----------------------------------------------
 - Unificação de arquivos Bronze...
 ----------------------------------------------
-- Processo concluído. 651 lojas salvas em data/bronze/lojas_bronze.csv
-- Data da extração: 08/10/2025
+- Processo concluído. 902 lojas salvas em data/bronze/lojas_bronze.csv
+- Data da extração: 10/10/2025
+
 ```
 🔗 [Ver log completo](https://raw.githubusercontent.com/rafa-trindade/petstore-scraping/refs/heads/main/logs/log.txt)
 
